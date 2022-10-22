@@ -15,19 +15,7 @@ const EditDialog = (props) => {
       lng: props.lng,
       status: status,
     };
-    CommonUpdate("sites", site)
-      .then((res) => res.json())
-      .then((json) => {
-        props.getLocations();
-        props.closeModal();
-      });
-  };
-
-  const deleteSite = () => {
-    const site = {
-      _id: props._id
-    };
-    CommonDeleteById("sites", site)
+    CommonUpdate("updateSite", site)
       .then((res) => res.json())
       .then((json) => {
         props.getLocations();
@@ -117,7 +105,7 @@ const EditDialog = (props) => {
         </div>
       </form>
       <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
-      {/* <button
+        {/* <button
           className="text-white bg-red-600 font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 absolute left-5"
           type="button"
           onClick={() => deleteSite()}

@@ -14,7 +14,7 @@ const CreateDialog = (props) => {
       lng: lng,
       status: status,
     };
-    CommonPost("sites", site)
+    CommonPost("addSite", site)
       .then((res) => res.json())
       .then((json) => {
         props.getLocations();
